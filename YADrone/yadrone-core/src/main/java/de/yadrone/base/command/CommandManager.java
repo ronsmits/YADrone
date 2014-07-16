@@ -831,6 +831,7 @@ public class CommandManager extends AbstractManager
 					} else {
 						c = cs;
 						t0 = System.currentTimeMillis();
+                        Thread.sleep(10); // In case there is only a sticky command, sleep for a while otherwise we clog up the video stream.
 					}
 				} else {
 					if (c.isSticky()) {
