@@ -1,9 +1,8 @@
 package de.yadrone.base.navdata;
 
-import java.util.ArrayList;
 
 /**
- * @brief Values for the detection type on drone cameras.
+ * Values for the detection type on drone cameras.
  */
 public enum CadType {
 	/* Deprecated */
@@ -37,6 +36,10 @@ public enum CadType {
 	/* Detect a tower side with the front camera */
 	TOWER_SIDE;
 
+	/**
+	 * @param v
+	 * @return
+	 */
 	public static CadType fromInt(int v) {
 		CadType[] values = values();
 		if (v < 0 || v > values.length) {
@@ -47,6 +50,10 @@ public enum CadType {
 	
 	// TODO: can the mask contain more than 1 value?
 	// if so, uncommment arraylist stuff and remove return statements
+	/**
+	 * @param types
+	 * @return
+	 */
 	public static CadType fromMask(int types) {
 		CadType[] values = values();
 		//ArrayList<VisionCadType> l = new ArrayList<VisionCadType>();
