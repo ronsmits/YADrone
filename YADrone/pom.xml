@@ -11,7 +11,7 @@
 	<groupId>de.uni-hamburg</groupId>
 	<artifactId>yadrone</artifactId>
 	<packaging>pom</packaging>
-	<version>0.3.2</version>
+	<version>0.3.3</version>
 	<name>YADrone</name>
 	<url>http://vsis-www.informatik.uni-hamburg.de/oldServer/teaching//projects/yadrone</url>
 
