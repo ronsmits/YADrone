@@ -1,5 +1,4 @@
-**target
-bin
-dist
-.metadata
-/controlcenter.properties
+.project
+.settings
+.classpath
+target
