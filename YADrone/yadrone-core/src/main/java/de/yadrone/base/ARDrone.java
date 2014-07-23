@@ -143,6 +143,7 @@ public class ARDrone implements IARDrone, IExceptionListener {
 	public void start() {
 		// call get to init and start manager
 		getCommandManager();
+		getCommandManager().waitFor(5000);
 		getConfigurationManager();
 		getNavDataManager();
 		getVideoManager();
