@@ -1,5 +1,5 @@
 reated by http://www.gitignore.io
-
+*/target/*
 ### Eclipse ###
 *.pydevproject
 .metadata
