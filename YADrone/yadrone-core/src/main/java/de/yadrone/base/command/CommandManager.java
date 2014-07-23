@@ -934,7 +934,7 @@ public class CommandManager extends AbstractManager
 
 	private void waitForControlAck(boolean b) throws InterruptedException {
 		if (controlAck != b) {
-			int n = 1;
+			int n = 20;
 			synchronized (controlAckLock) {
 				while (n > 0 && controlAck != b) {
 					controlAckLock.wait(50);
