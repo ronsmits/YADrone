@@ -39,7 +39,11 @@ public interface IARDrone {
 	
 	public void start();
 	public void stop();
-	
+	public void stopController();
+        public void startController();
+        public void startVideomanager();
+        public void stopVideomanager();
+        
 	//camera
 	public void setHorizontalCamera();//setFrontCameraStreaming()
 	public void setVerticalCamera();//setBellyCameraStreaming()

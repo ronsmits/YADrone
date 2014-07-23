@@ -123,7 +123,38 @@ public class ARDrone implements IARDrone, IExceptionListener {
 		}
 		return configurationManager;
 	}
+@Override
+	public void stopController() {
+		freeze();
+		landing();
+		CommandManager cm = getCommandManager();
+		cm.stop();
+		ConfigurationManager cfgm = getConfigurationManager();
+		cfgm.close();
+		NavDataManager nm = getNavDataManager();
+		nm.stop();
+	}
 
+	@Override
+	public void startController() {
+		// call get to init and start manager
+		getCommandManager();
+		getConfigurationManager();
+		getNavDataManager();
+	}
+
+	@Override
+	public void startVideomanager() {
+		getVideoManager();
+	}
+
+	@Override
+	public void stopVideomanager() {
+		VideoManager vm = getVideoManager();
+		if (vm != null) {
+			vm.close();
+		}
+	}
 	@Override
 	public void stop() {
 		freeze();
