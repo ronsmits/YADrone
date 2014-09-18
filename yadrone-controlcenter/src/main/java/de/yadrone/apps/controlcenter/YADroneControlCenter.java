@@ -7,14 +7,21 @@ public class YADroneControlCenter
 {	
 	private ARDrone ardrone=null;
 	
+        public YADroneControlCenter(String ipaddress) {
+            initialize(ipaddress);
+        }
 	public YADroneControlCenter(){
-		initialize();
+		initialize("");
 	}
 	
-	private void initialize(){
+	private void initialize(String ipaddress){
 		try
 		{
-			ardrone = new ARDrone();
+			if (ipaddress=="")
+                            ardrone = new ARDrone();
+                        else 
+                            ardrone = new ARDrone(ipaddress);
+                        
 			System.out.println("Connect drone controller");
 			ardrone.start();
 			
@@ -31,6 +38,9 @@ public class YADroneControlCenter
 	}
 		
 	public static void main(String args[]){
-		new YADroneControlCenter();
+            if (args.length==1)
+                new YADroneControlCenter(args[0]);
+            else
+)		new YADroneControlCenter();
 	}
 }
