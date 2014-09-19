@@ -30,6 +30,12 @@ import de.yadrone.base.command.DetectionType;
 import de.yadrone.base.exception.IExceptionListener;
 import de.yadrone.base.manager.AbstractManager;
 import de.yadrone.base.utils.ARDroneUtils;
+import java.io.DataInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.Socket;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 //TODO: refactor parsing code into separate classes but need to think about how to put the listener code
 //option: make it one abstract listener, disadvantage: each client has many methods to implement
@@ -423,14 +429,28 @@ public class NavDataManager extends AbstractManager
 		ticklePort(ARDroneUtils.NAV_PORT);
 		boolean bootstrapping = true;
 		boolean controlAck = false;
-
+                Socket netsocket;
+                DataInputStream dataInputStream=null;
+            try {
+                netsocket = new Socket("127.0.0.1", 9876);
+                InputStream is = netsocket.getInputStream();
+                dataInputStream = new DataInputStream(is);
+            } catch (IOException ex) {
+                Logger.getLogger(NavDataManager.class.getName()).log(Level.SEVERE, null, ex);
+                System.exit(1);
+            }
 		DatagramPacket packet = new DatagramPacket(new byte[MAX_PACKET_SIZE], MAX_PACKET_SIZE);
+                byte[] recv = new byte[MAX_PACKET_SIZE];
 		while (!doStop) {
 			try {
 
-				// ticklePort(ARDroneUtils.NAV_PORT);
-				socket.receive(packet);
-				ByteBuffer buffer = ByteBuffer.wrap(packet.getData(), 0, packet.getLength());
+                            // ticklePort(ARDroneUtils.NAV_PORT);
+                            //socket.receive(packet);
+                            int read = dataInputStream.read(recv);
+                            ByteBuffer buffer = ByteBuffer.allocate(MAX_PACKET_SIZE*2);
+                                buffer = ByteBuffer.wrap(recv);
+                                System.out.println("read "+read);
+				//ByteBuffer buffer = ByteBuffer.wrap(packet.getData(), 0, packet.getLength());
 
 				DroneState s = parse(buffer);
 

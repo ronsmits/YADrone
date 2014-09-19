@@ -10,7 +10,7 @@
 	<parent>
 		<groupId>de.uni-hamburg</groupId>
 		<artifactId>yadrone</artifactId>
-		<version>0.3.4-SNAPSHOT</version>
+		<version>0.3.4.LOCALNAVTCP-SNAPSHOT</version>
 		<relativePath>../</relativePath>
 	</parent>
 

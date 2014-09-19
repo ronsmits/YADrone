@@ -41,6 +41,6 @@ public class YADroneControlCenter
             if (args.length==1)
                 new YADroneControlCenter(args[0]);
             else
-)		new YADroneControlCenter();
+		new YADroneControlCenter();
 	}
 }
