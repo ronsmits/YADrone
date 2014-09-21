@@ -1,16 +1,13 @@
 package de.yadrone.base.command;
 
-public class FlatTrimCommand extends ATCommand
-{
+public class FlatTrimCommand extends ATCommand {
     @Override
-    protected String getID()
-    {
+    protected String getID() {
         return "FTRIM";
     }
 
     @Override
-    protected Object[] getParameters()
-    {
+    protected Object[] getParameters() {
         return new Object[] {};
     }
 }

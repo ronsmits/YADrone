@@ -1336,7 +1336,7 @@ public class NavDataManager extends AbstractManager {
      */
     private int getSeconds(final int time) {
         final int seconds = time >>> 11;
-            return seconds;
+        return seconds;
     }
 
     /**

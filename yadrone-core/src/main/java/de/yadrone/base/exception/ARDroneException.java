@@ -1,15 +1,12 @@
 package de.yadrone.base.exception;
 
-public class ARDroneException extends Exception
-{
+public class ARDroneException extends Exception {
 
-	public ARDroneException()
-	{
-		super();
-	}
-	
-	public ARDroneException(Throwable t)
-	{
-		super(t);
-	}
+    public ARDroneException() {
+        super();
+    }
+
+    public ARDroneException(final Throwable t) {
+        super(t);
+    }
 }

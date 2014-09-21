@@ -8,5 +8,5 @@ package de.yadrone.base.navdata;
 import java.util.EventListener;
 
 public interface VelocityListener extends EventListener {
-	void velocityChanged(float vx, float vy, float vz);
+    void velocityChanged(float vx, float vy, float vz);
 }

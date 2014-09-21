@@ -1,38 +1,34 @@
-
 package de.yadrone.base.command;
 
 import java.io.UnsupportedEncodingException;
 
-public abstract class ATCommand extends DroneCommand
-{
-    private String encodeParameter(Object p)
-    {
-        if(p instanceof Integer)
+public abstract class ATCommand extends DroneCommand {
+    private String encodeParameter(final Object p) {
+        if (p instanceof Integer) {
             return p.toString();
+        }
 
-        if(p instanceof Float)
+        if (p instanceof Float) {
             return Integer.toString(Float.floatToIntBits((Float) p));
+        }
 
-        if(p instanceof String)
+        if (p instanceof String) {
             return "\"" + p + "\"";
+        }
 
         throw new IllegalArgumentException("Unsupported parameter type: " + p.getClass().getName() + " " + p);
     }
 
-    public String getCommandString(int seq)
-    {
+    public String getCommandString(final int seq) {
         return "AT*" + getID() + "=" + seq + getParametersString() + "\r";
     }
 
     protected abstract String getID();
 
-    public byte[] getPacket(int seq)
-    {
-        try
-        {
+    public byte[] getPacket(final int seq) {
+        try {
             return getCommandString(seq).getBytes("ASCII");
-        } catch(UnsupportedEncodingException e)
-        {
+        } catch (final UnsupportedEncodingException e) {
             // never happens
             return null;
         }
@@ -40,11 +36,9 @@ public abstract class ATCommand extends DroneCommand
 
     protected abstract Object[] getParameters();
 
-    private String getParametersString()
-    {
-        StringBuffer sb = new StringBuffer();
-        for(Object p : getParameters())
-        {
+    private String getParametersString() {
+        final StringBuffer sb = new StringBuffer();
+        for (final Object p : getParameters()) {
             sb.append(',').append(encodeParameter(p));
         }
 
@@ -52,15 +46,13 @@ public abstract class ATCommand extends DroneCommand
     }
 
     @Override
-    public Priority getPriority()
-    {
+    public Priority getPriority() {
         return Priority.MIN_PRIORITY;
     }
 
     @Override
-    public String toString()
-    {
-        StringBuilder builder = new StringBuilder();
+    public String toString() {
+        final StringBuilder builder = new StringBuilder();
         builder.append(getClass().getSimpleName());
         builder.append(" [ID=");
         builder.append(getID());
@@ -70,16 +62,17 @@ public abstract class ATCommand extends DroneCommand
         return builder.toString();
     }
 
-    public boolean equals(Object obj)
-    {
-        if(obj == null || !(obj instanceof ATCommand))
+    @Override
+    public boolean equals(final Object obj) {
+        if (obj == null || !(obj instanceof ATCommand)) {
             return false;
-        ATCommand o = (ATCommand) obj;
+        }
+        final ATCommand o = (ATCommand) obj;
         return o.getCommandString(0).equals(getCommandString(0));
     }
 
-	public boolean needControlAck() {
-		return false;
-	}
-	
+    public boolean needControlAck() {
+        return false;
+    }
+
 }

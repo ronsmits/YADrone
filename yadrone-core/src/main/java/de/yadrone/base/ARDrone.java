@@ -74,7 +74,7 @@ public class ARDrone implements IARDrone, IExceptionListener {
 
     /**
      * Create a new instance of a drone's virtual counterpart.
-     * 
+     *
      * @param ipaddr
      *            The address of the drone, e.g. 192.168.1.1
      * @param videoDecoder
@@ -360,7 +360,7 @@ public class ARDrone implements IARDrone, IExceptionListener {
 
     /**
      * 0.01-1.0 -> 1-100%
-     * 
+     *
      * @return 1-100%
      */
     @Override
@@ -408,7 +408,7 @@ public class ARDrone implements IARDrone, IExceptionListener {
 
     /**
      * print error message
-     * 
+     *
      * @param message
      * @param obj
      */
