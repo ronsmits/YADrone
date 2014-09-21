@@ -1,10 +1,8 @@
 package de.yadrone.base.exception;
 
-public class NavDataException extends ARDroneException
-{
+public class NavDataException extends ARDroneException {
 
-	public NavDataException(Throwable t)
-	{
-		super(t);
-	}
+    public NavDataException(final Throwable t) {
+        super(t);
+    }
 }

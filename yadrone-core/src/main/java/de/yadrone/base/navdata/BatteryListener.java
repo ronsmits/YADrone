@@ -8,7 +8,7 @@ package de.yadrone.base.navdata;
 import java.util.EventListener;
 
 public interface BatteryListener extends EventListener {
-	public void batteryLevelChanged(int percentage);
+    public void batteryLevelChanged(int percentage);
 
-	public void voltageChanged(int vbat_raw);
+    public void voltageChanged(int vbat_raw);
 }
