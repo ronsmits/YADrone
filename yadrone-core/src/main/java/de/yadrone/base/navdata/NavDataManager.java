@@ -449,7 +449,7 @@ public class NavDataManager extends AbstractManager
                             int read = dataInputStream.read(recv);
                             ByteBuffer buffer = ByteBuffer.allocate(MAX_PACKET_SIZE*2);
                                 buffer = ByteBuffer.wrap(recv);
-                                System.out.println("read "+read);
+                                Logger.getLogger(NavDataManager.class.getName()).log(Level.FINEST, "read "+recv.length);
 				//ByteBuffer buffer = ByteBuffer.wrap(packet.getData(), 0, packet.getLength());
 
 				DroneState s = parse(buffer);
