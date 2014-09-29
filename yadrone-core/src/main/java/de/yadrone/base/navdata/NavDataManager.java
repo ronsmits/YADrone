@@ -459,6 +459,7 @@ public class NavDataManager extends AbstractManager
 
 				// TODO should we reset the communication watchdog always?
 				if (s.isCommunicationProblemOccurred()) {
+				    System.err.println("NAV DATA ERRROR: Communication problem occured");
 					manager.resetCommunicationWatchDog();
 				}
 
@@ -473,6 +474,7 @@ public class NavDataManager extends AbstractManager
 			{
 				System.err.println("Navdata reception timeout");
 				excListener.exeptionOccurred(new de.yadrone.base.exception.NavDataException(t));
+		        ticklePort(ARDroneUtils.NAV_PORT);
 			} 
 			catch (Throwable t) 
 			{
