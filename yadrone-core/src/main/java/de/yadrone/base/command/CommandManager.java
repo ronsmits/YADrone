@@ -36,9 +36,9 @@ import de.yadrone.base.utils.ARDroneUtils;
 public class CommandManager extends AbstractManager 
 {
 
-	public final static String APPLICATION_ID = "aabbccdd";
-	public final static String PROFILE_ID = "bbccddee";
-	public final static String SESSION_ID = "ccddeeff";
+	public final static String APPLICATION_ID = "96e3654b";
+	public final static String PROFILE_ID = "c8e84f4f";
+	public final static String SESSION_ID = "15b0d5c4";
 	
 	private IExceptionListener excListener;
 	private CommandQueue q;
@@ -870,12 +870,12 @@ public class CommandManager extends AbstractManager
 
 	private CommandManager initARDrone() 
 	{
-		new Thread(new Runnable() {
-			public void run()
-			{
+//		new Thread(new Runnable() {
+//			public void run()
+//			{
 				setMulticonfiguration();
-			}			
-		}).start();;
+//			}			
+//		}).start();;
 		
 		waitFor(5000);
 		
