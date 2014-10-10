@@ -36,9 +36,9 @@ import de.yadrone.base.utils.ARDroneUtils;
 public class CommandManager extends AbstractManager 
 {
 
-	public final static String APPLICATION_ID = "96e3654b";
-	public final static String PROFILE_ID = "c8e84f4f";
-	public final static String SESSION_ID = "15b0d5c4";
+	public final static String APPLICATION_ID = "00000000"; //"96e3654b";
+	public final static String PROFILE_ID = "00000000";
+	public final static String SESSION_ID = "00000000";
 	
 	private IExceptionListener excListener;
 	private CommandQueue q;
