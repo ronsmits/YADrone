@@ -43,7 +43,7 @@ public class CommandManager extends AbstractManager
 	private IExceptionListener excListener;
 	private CommandQueue q;
 	private Timer timer;
-    private int sendCommandCount;
+    private long sendCommandCount;
 
 	private static int seq = 1;
 
@@ -68,7 +68,7 @@ public class CommandManager extends AbstractManager
 	 * Returns the number of commands send to the drone.
      * @return the sendCommandCount
      */
-    public int getSendCommandCount() 
+    public long getSendCommandCount() 
     {
         return sendCommandCount;
     }
