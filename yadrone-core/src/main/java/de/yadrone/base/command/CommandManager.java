@@ -43,6 +43,7 @@ public class CommandManager extends AbstractManager
 	private IExceptionListener excListener;
 	private CommandQueue q;
 	private Timer timer;
+    private int sendCommandCount;
 
 	private static int seq = 1;
 
@@ -51,6 +52,7 @@ public class CommandManager extends AbstractManager
 		this.q = new CommandQueue(100);
 		this.timer = new Timer("YADrone CommandManager Timer");
 		this.excListener = excListener;
+		this.sendCommandCount = 0;
 		initARDrone();
 	}
 
@@ -63,6 +65,15 @@ public class CommandManager extends AbstractManager
 	}
 
 	/**
+	 * Returns the number of commands send to the drone.
+     * @return the sendCommandCount
+     */
+    public int getSendCommandCount() 
+    {
+        return sendCommandCount;
+    }
+
+    /**
 	 * Wait (sleep) for specified amount of time (same semantics as after() and waitFor() - blocks the calling thread).
 	 * This way commands can be executed for a certain amount of time, e.g. fly forward for 2000 ms, then turn right.
 	 * @param millis  Number of milliseconds to wait
@@ -908,6 +919,8 @@ public class CommandManager extends AbstractManager
 		
 		DatagramPacket packet = new DatagramPacket(buffer, buffer.length, inetaddr, ARDroneUtils.PORT);
 		socket.send(packet);
+		
+		sendCommandCount++;
 	}
 
 	private int limit(int i, int min, int max) {
